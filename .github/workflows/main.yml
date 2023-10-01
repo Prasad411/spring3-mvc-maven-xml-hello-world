@@ -12,4 +12,4 @@ jobs:
     - name: Build with Maven
       run: mvn package
     - name: deploy tomcat
-      run: curl -v -u admin:admin -T /home/ec2-user/actions-runner/_work/spring3-mvc-maven-xml-hello-world/spring3-mvc-maven-xml-hello-world/target/spring3-mvc-maven-xml-hello-world-1.2.war 'http://ec2-15-206-81-114.ap-south-1.compute.amazonaws.com:8080/manager/text/deploy?path=/githubaction_pipeline&update=true'
+      run: curl -v -u ${{ secrets.TOMCAT_USER_NAME }}:${{ secrets.TOMCAT_PASS }} -T /home/ec2-user/actions-runner/_work/spring3-mvc-maven-xml-hello-world/spring3-mvc-maven-xml-hello-world/target/spring3-mvc-maven-xml-hello-world-1.2.war 'http://ec2-15-206-81-114.ap-south-1.compute.amazonaws.com:8080/manager/text/deploy?path=/githubaction_pipeline&update=true'
